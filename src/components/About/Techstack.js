@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { CgCPlusPlus } from "react-icons/cg";
 import {
@@ -15,61 +15,73 @@ import {
   SiHtml5,
   SiCss3,
   SiJava,
-  SiSolidity,
-  SiTensorflow,
+  SiAmazonaws,
   SiFlutter,
+  SiGooglecloud,
+  SiDocker,
+  SiTerraform,
+  SiSelenium,
+  SiUnity,
 } from "react-icons/si";
 
+import "./Techstack.css"
+
 function Techstack() {
+  const techStackItems = [
+    { icon: <CgCPlusPlus />, title: "C++" },
+    { icon: <DiJavascript1 />, title: "JavaScript" },
+    { icon: <DiNodejs />, title: "Node.js" },
+    { icon: <DiReact />, title: "React" },
+    { icon: <DiMongodb />, title: "MongoDB" },
+    { icon: <SiExpress />, title: "Express.js" },
+    { icon: <DiGit />, title: "Git" },
+    { icon: <SiFirebase />, title: "Firebase" },
+    { icon: <DiPython />, title: "Python" },
+    { icon: <SiHtml5 />, title: "HTML5" },
+    { icon: <SiCss3 />, title: "CSS3" },
+    { icon: <SiJava />, title: "Java" },
+    { icon: <SiAmazonaws />, title: "AWS" },
+    { icon: <SiFlutter />, title: "Flutter" },
+    { icon: <SiGooglecloud />, title: "Google Cloud" },
+    { icon: <SiDocker />, title: "Docker" },
+    { icon: <SiTerraform />, title: "Terraform" },
+    { icon: <SiSelenium />, title: "Selenium" },
+    { icon: <SiUnity />, title: "Unity" },
+  ];
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+ 
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <CgCPlusPlus />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiExpress />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiPython />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiTensorflow />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiHtml5 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiCss3 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiJava />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiSolidity />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFlutter />
-      </Col>
+      {techStackItems.map((item, index) => (
+        <Col
+          key={index}
+          xs={4}
+          md={2}
+          className={`tech-icons ${hoveredIndex === index ? 'hovered' : ''}`}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={() => handleMouseEnter(index)}
+          onTouchEnd={handleMouseLeave}
+        >
+          {item.icon}
+          {hoveredIndex === index && (
+            <div className="tech-card">
+              {item.title}
+            </div>
+          )}
+        </Col>
+      ))}
     </Row>
   );
-}
+};
 
 export default Techstack;
+

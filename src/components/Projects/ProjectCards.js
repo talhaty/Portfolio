@@ -5,9 +5,10 @@ import Button from "react-bootstrap/Button";
 function ProjectCards(props) {
   return (
     <Card className="project-card-view" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <props.imgPath />
+      
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
+      <b className="purple"><Card.Title>{props.title}</Card.Title></b>
+        <br/>
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>

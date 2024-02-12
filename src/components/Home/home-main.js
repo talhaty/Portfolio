@@ -8,8 +8,8 @@ function LottiePlayer() {
     lottie.loadAnimation({
       container: container.current,
       renderer: 'svg',
-      loop: true,
-      autoplay: true,
+      loop: false,
+      autoplay: false,
       path: 'https://assets6.lottiefiles.com/packages/lf20_7VEmrT02fx.json'
     });
   }, []);

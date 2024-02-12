@@ -1,0 +1,21 @@
+.cv-container {
+    position: relative;
+    width: 40%;
+    padding-bottom: 50%; 
+    overflow: hidden;
+    border: none;
+    margin: 0 auto;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+  }
+  
+  .cv-iframe {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  

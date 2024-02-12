@@ -5,6 +5,7 @@ import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import LottiePlayer from "./aboutAnimation";
 import Toolstack from "./Toolstack";
+import Github  from "./Github";
 
 function About() {
   return (
@@ -34,6 +35,9 @@ function About() {
             <LottiePlayer />
           </Col>
         </Row>
+        <div style={{margin: "5vh"}}>
+        <Github/>
+        </div>
         <h1 className="project-heading">
           Professional <strong className="purple">Skillset </strong>
         </h1>
@@ -44,7 +48,6 @@ function About() {
           <strong className="purple">Tools</strong> I use
         </h1>
         <Toolstack />
-            
       </Container>
     </Container>
   );
